@@ -1,7 +1,7 @@
 <script setup>
 let menu = [
     {
-        title: "ОФЗ",
+        title: "Облигации",
         link: "/",
     },
     {
