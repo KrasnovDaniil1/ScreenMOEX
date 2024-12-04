@@ -1,0 +1,28 @@
+:root {
+    --color-1: #1e2c39;
+    --color-2: #a6bdd5;
+    --color-3: #5a6c7e;
+    --color-4: #243442;
+    --color-5: #21313f;
+
+
+    --size-18: 18px;
+    --ratio: calc(1920 / 100); /*нужно для расчёта резиновой вёрстки*/
+}
+
+body {
+    background: var(--color-1);
+    color: var(--color-2);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: var(--size-18);
+}
+
+/* @media screen and (max-width: 834px) {
+    $ratio: calc(834 / 100);
+}
+
+@media screen and (max-width: 390px) {
+    $ratio: calc(390 / 100);
+} */
