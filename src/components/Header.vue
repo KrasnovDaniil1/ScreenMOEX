@@ -5,12 +5,8 @@ let menu = [
         link: "/",
     },
     {
-        title: "Корпоративные",
-        link: "favorites",
-    },
-    {
         title: "Избранные",
-        link: "corporate",
+        link: "favorites",
     },
     {
         title: "Неполные",

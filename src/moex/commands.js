@@ -1,4 +1,4 @@
-import { nullPrice, nullData } from "./services";
+import { nullPrice } from "./services";
 
 /* подсчёт оставшихся купонов */
 const calculateCouponCount = (couponDateStr, expireDateStr, period) => {
@@ -81,7 +81,7 @@ export const changeBonds = (data) => {
             MATDATE: obj.MATDATE,
             BUYBACKDATE: obj.BUYBACKDATE,
             SECTYPE: obj.SECTYPE,
-            LOTVALUE: obj.LOTVALUE,
+            LOTVALUE: obj.LOTVALUE.toFixed(0),
             INSTRID: obj.INSTRID,
             FACEUNIT: obj.FACEUNIT,
             CURRENCYID: obj.CURRENCYID,
@@ -92,7 +92,7 @@ export const changeBonds = (data) => {
             expireYears: expireYears.toFixed(2),
             yearProfit: yearProfit.toFixed(2),
             price: price.toFixed(2),
-            expireNextCoupon: expireNextCoupon,
+            expireNextCoupon: expireNextCoupon.toFixed(0),
             expireDate,
         };
     });

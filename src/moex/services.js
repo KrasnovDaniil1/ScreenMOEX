@@ -38,70 +38,89 @@ export const nullPrice = (arr) => {
     return null;
 };
 
-export const checkFullData = (obj) => {
-    for (let key in obj) {
-        if (obj[key] === null || isNaN(v) || isFinite(v)) {
-            return false;
-        }
-    }
-    return true;
-};
-export const columnsRus = {
-    LISTLEVEL: {
-        title: "Листинг",
-        sort: false,
-    },
-    ISIN: {
-        title: "Тикет",
-        sort: false,
-    },
-    SHORTNAME: {
-        title: "Название",
-        sort: false,
-    },
-    LOTVALUE: {
-        title: "Номинал",
-        sort: true,
-    },
-    COUPONPERIOD: {
-        title: "Период выплат",
-        sort: true,
-    },
-    COUPONVALUE: {
-        title: "Купон",
-        sort: true,
-    },
-    ACCRUEDINT: {
-        title: "НКД",
-        sort: true,
-    },
-    price: {
-        title: "Цена",
-        sort: true,
-    },
-    couponCount: {
-        title: "Ост. купонов",
-        sort: true,
-    },
-    expireNextCoupon: {
-        title: "Дней до купона",
-        sort: true,
-    },
-    expireDate: {
-        title: "Дата погашения",
-        sort: true,
-    },
-    yearProfit: {
-        title: "Доходность",
-        sort: true,
-    },
+// export const checkFullData = (obj) => {
+//     for (let key in obj) {
+//         if (obj[yearProfit] === null || isNaN(v) || isFinite(v)) {
+//             return false;
+//         }
+//     }
+//     return true;
+// };
 
-    // SECTYPE: "SECTYPE",
-    // INSTRID: "INSTRID",
-    // FACEUNIT: "FACEUNIT",
-    // CURRENCYID: "CURRENCYID",
-    // LISTLEVEL: "LISTLEVEL",
+export const columnsRus = {
+    ISIN: "Номер",
+    SHORTNAME: "Название",
+    LOTVALUE: "Номинал",
+    COUPONPERIOD: "Купоны раз в",
+    COUPONVALUE: "Купон",
+
+    expireYears: "Осталось лет",
+    price: "Цена",
+    couponCount: "Осталось купонов",
+    ACCRUEDINT: "НКД",
+
+    expireNextCoupon: "Купон через",
+    // BUYBACKDATE: "Дата оферты",
+    // MATDATE: "Дата выкупа",
+    yearProfit: "Доходность (годовая)",
 };
+
+// export const columnsRus = {
+//     LISTLEVEL: {
+//         title: "Листинг",
+//         sort: false,
+//     },
+//     ISIN: {
+//         title: "Тикет",
+//         sort: false,
+//     },
+//     SHORTNAME: {
+//         title: "Название",
+//         sort: false,
+//     },
+//     LOTVALUE: {
+//         title: "Номинал",
+//         sort: true,
+//     },
+//     COUPONPERIOD: {
+//         title: "Период выплат",
+//         sort: true,
+//     },
+//     COUPONVALUE: {
+//         title: "Купон",
+//         sort: true,
+//     },
+//     ACCRUEDINT: {
+//         title: "НКД",
+//         sort: true,
+//     },
+//     price: {
+//         title: "Цена",
+//         sort: true,
+//     },
+//     couponCount: {
+//         title: "Ост. купонов",
+//         sort: true,
+//     },
+//     expireNextCoupon: {
+//         title: "Дней до купона",
+//         sort: true,
+//     },
+//     expireDate: {
+//         title: "Дата погашения",
+//         sort: true,
+//     },
+//     yearProfit: {
+//         title: "Доходность",
+//         sort: true,
+//     },
+
+//     // SECTYPE: "SECTYPE",
+//     // INSTRID: "INSTRID",
+//     // FACEUNIT: "FACEUNIT",
+//     // CURRENCYID: "CURRENCYID",
+//     // LISTLEVEL: "LISTLEVEL",
+// };
 
 // 1 - Акция обыкновенная
 // 2 - Акция привилегированная

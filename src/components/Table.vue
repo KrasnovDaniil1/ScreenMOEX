@@ -1,19 +1,20 @@
 <script setup>
-const columnsRus = {
-    ISIN: "Номер",
-    SHORTNAME: "Название",
-    LOTVALUE: "Номинал",
-    COUPONPERIOD: "Период",
+import { columnsRus } from "../moex/services";
 
-    COUPONVALUE: "Купон",
-    ACCRUEDINT: "НКД",
-    expireYears: "Осталось лет",
-    price: "Цена",
-    couponCount: "Купонов",
-    // NEXTCOUPON: "Следующий купон",
-    BUYBACKDATE: "Дата оферты",
-    MATDATE: "Дата выкупа",
-    yearProfit: "Доходность",
+defineProps({
+    bonds: Array,
+});
+
+const level = (item, k) => {
+    if (k == "ISIN") {
+        if (item.LISTLEVEL == 2) {
+            return "yellow";
+        } else if (item.LISTLEVEL == 3) {
+            return "red";
+        } else {
+            return "green";
+        }
+    }
 };
 </script>
 
@@ -28,9 +29,19 @@ const columnsRus = {
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="column in columnsRus" :key="column">
-                    <td v-for="column in columnsRus" :key="column">
-                        {{ column }}
+                <tr v-for="item in bonds" :key="item.id">
+                    <td
+                        v-for="(v, k) in columnsRus"
+                        :key="k"
+                        :class="level(item, k)"
+                    >
+                        <a
+                            :href="`https://www.moex.com/ru/issue.aspx?board=${item.BOARDID}&code=${item[k]}`"
+                            target="_blank"
+                            v-if="k == 'ISIN'"
+                            >{{ item[k] }}</a
+                        >
+                        <template v-else>{{ item[k] }}</template>
                     </td>
                 </tr>
             </tbody>
@@ -67,13 +78,26 @@ section {
     table {
         width: 100%;
         margin-top: 18px;
+        .red {
+            color: #ff7584;
+        }
+        .green {
+            color: #2ce39a;
+        }
+        .yellow {
+            color: #ffd450;
+        }
         th,
         td {
             padding: 10px;
+
             text-align: center;
+            vertical-align: middle;
         }
         thead {
             background: var(--color-4);
+            position: sticky;
+            top: 0;
         }
         tbody > tr:nth-child(2n) {
             background: var(--color-5);
