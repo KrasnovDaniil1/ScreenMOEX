@@ -3,6 +3,8 @@ import Header from "./components/Header.vue";
 import Advertising from "./components/Advertising.vue";
 import Table from "./components/Table.vue";
 import Loader from "./components/Loader.vue";
+import BtnUp from "./components/BtnUp.vue";
+import Footer from "./components/Footer.vue";
 
 import { RouterView } from "vue-router";
 import { ref, onMounted, computed } from "vue";
@@ -25,6 +27,8 @@ onMounted(async () => {
             <RouterView />
             <Advertising />
         </section>
+        <BtnUp />
+        <Footer />
     </main>
 </template>
 
