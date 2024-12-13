@@ -1,3 +1,5 @@
+import { SortNum } from "../moex/sort";
+
 export const mutBonds = (state, data) => {
     state.bonds = data;
 };
@@ -23,5 +25,32 @@ export const mutDivisionBonds = (state) => {
     }
     state.trueInformation = trueInformation;
     state.falseInformation = falseInformation;
-    console.log(state.falseInformation);
+};
+
+export const mutSortBonds = (
+    state,
+    sort = {
+        sortBonds: "yearProfit",
+        sortListing: 1,
+        sortBy: "up",
+        sortData: "all",
+    }
+) => {
+    let data = [];
+    if (sort.sortData == "all") {
+        data = state.bonds.filter((item) => {
+            return item.LISTLEVEL == sort.sortListing;
+        });
+    } else if (sort.sortData == "full") {
+        data = state.trueInformation.filter((item) => {
+            return item.LISTLEVEL == sort.sortListing;
+        });
+    } else if (sort.sortData == "incomplete") {
+        data = state.falseInformation.filter((item) => {
+            return item.LISTLEVEL == sort.sortListing;
+        });
+    }
+    console.log("mutSortBonds", state.bonds);
+
+    state.sortBonds = SortNum(data, sort.sortBonds, sort.sortBy);
 };

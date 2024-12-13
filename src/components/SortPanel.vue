@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 
 let sortBonds = [
     {
@@ -37,6 +37,7 @@ let sortListing = [
         title: "Листинг 3",
     },
 ];
+
 let sortBy = [
     {
         value: "up",
@@ -47,10 +48,34 @@ let sortBy = [
         title: "Убыванию",
     },
 ];
+
+let sortData = [
+    {
+        value: "all",
+        title: "Все",
+    },
+    {
+        value: "full",
+        title: "Полные",
+    },
+    {
+        value: "incomplete",
+        title: "Не полные",
+    },
+];
+
 let sortSelect = ref({
     sortBonds: "yearProfit",
     sortListing: 1,
     sortBy: "up",
+    sortData: "all",
+});
+import { useStore } from "vuex";
+
+const store = useStore();
+
+watch(sortSelect.value, () => {
+    store.commit("mutSortBonds", sortSelect.value);
 });
 </script>
 
@@ -83,7 +108,15 @@ let sortSelect = ref({
                 {{ item.title }}
             </option>
         </select>
-        {{ sortSelect }}
+        <select v-model="sortSelect.sortData">
+            <option
+                v-for="(item, index) of sortData"
+                :key="index"
+                :value="item.value"
+            >
+                {{ item.title }}
+            </option>
+        </select>
     </nav>
 </template>
 

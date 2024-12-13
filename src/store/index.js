@@ -8,6 +8,7 @@ const state = {
     favorites: [],
     falseInformation: [],
     trueInformation: [],
+    sortBonds: [],
     loader: true,
 };
 

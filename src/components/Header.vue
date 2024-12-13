@@ -9,10 +9,6 @@ let menu = [
         link: "favorites",
     },
     {
-        title: "Неполные",
-        link: "notinforamation",
-    },
-    {
         title: "FAQ",
         link: "faq",
     },
